@@ -9,7 +9,7 @@ library(Seurat)
 library(dplyr)
 library(ggsci)
 list.files("/Users/mkbai/fsdownload/filtered_gene_bc_matrices/hg19")
-??Reads10X
+#??Reads10X
 pbmc.data <- Read10X(data.dir = "/Users/mkbai/fsdownload/filtered_gene_bc_matrices/hg19")
 pbmc.data
 
@@ -50,7 +50,7 @@ CombinePlots(plots = list(plot1, plot2))
 #pbmc <- ScaleData(pbmc, features = all.genes)
 pbmc <- ScaleData(pbmc)
 
-########################### 5.PCA降维
+########################### 5.PCA
 pbmc <- RunPCA(pbmc, features = VariableFeatures(object = pbmc))
 VizDimLoadings(pbmc, dims = 1:2, reduction = "pca")
 DimPlot(pbmc, reduction = "pca")
@@ -62,7 +62,7 @@ pbmc <- JackStraw(pbmc, num.replicate = 100)
 pbmc <- ScoreJackStraw(pbmc, dims = 1:20)
 JackStrawPlot(pbmc, dims = 1:15)
 #5.2 Elbow Plot法
-ElbowPlot(pbmc)
+#ElbowPlot(pbmc)
 
 ########################### 6.细胞聚类
 pbmc <- FindNeighbors(pbmc, dims = 1:10)
